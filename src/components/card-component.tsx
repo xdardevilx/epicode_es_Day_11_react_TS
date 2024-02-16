@@ -1,6 +1,7 @@
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import { Article } from '../assets/interface/generic-article';
+import { Link } from 'react-router-dom';
 
 interface articleProps{
     article:Article
@@ -8,7 +9,7 @@ interface articleProps{
 
 function CardComponent({article}: articleProps) {
 
-console.log(article)
+// console.log(article)
   return (
     <Card style={{ width: '18rem' }}>
       <Card.Img variant="top" src={article.image_url} />
@@ -24,7 +25,7 @@ console.log(article)
         
       </ListGroup>
       <Card.Body>
-        <Card.Link href="#">Dettagli</Card.Link>
+        <Link to={"details/"+ article.id}>Dettagli</Link>
       </Card.Body>
     </Card>
   );

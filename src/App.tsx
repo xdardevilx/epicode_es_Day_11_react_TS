@@ -5,6 +5,7 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css"
 import getArticleAPI from './data/get-article-API'
 import MainComponent from './components/main-component'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import PageDetails from './components/pageDeatails'
 
 function App() {
   getArticleAPI()
@@ -18,7 +19,7 @@ function App() {
      <Routes>
      
       <Route path="/" element={<MainComponent/>} />
-      {/* <Route path="/details" element={<MainComponent/>} /> */}
+      <Route path="/details/:parametro" element={<PageDetails/>} />
       <Route path="*" element={<h1>404</h1>} />
     </Routes>
      <footer>

@@ -11,7 +11,7 @@ const MainComponent=()=>{
 useEffect(() => {
    const fetchData= async ()=>{
  const data = await getArticleAPI()
- console.log("testData",data)
+//  console.log("testData",data)
   setArticles(data)
    }
    fetchData()

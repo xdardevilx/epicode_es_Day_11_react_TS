@@ -4,22 +4,31 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import { Details } from '../assets/interface/detail-article';
 import getArticleDeatilAPI from '../data/get-articleDetail-API';
 import { useParams } from 'react-router-dom';
+import { Col, Container, Row } from 'react-bootstrap';
 
-function KitchenSinkExample() {
-  const params = useParams();
+interface detailsProps{
+  details :Details
+}
+function PageDetails({details}:detailsProps) {
+  const {id} = useParams();
+  console.log("id",id)
   const [details, setDetails] = useState<Details[]>([]);
 
   useEffect(() => {
     const fetchData= async ()=>{
-  const data = await getArticleDeatilAPI()
+  const data = await getArticleDeatilAPI(id)
   console.log("testData",data)
    setDetails(data)
+   console.log(details)
     }
     fetchData()
     
  
- },[])
+ },[id])
   return (
+    <Container>
+      <Row>
+        <Col>
     <Card style={{ width: '18rem' }}>
       <Card.Img variant="top" src="holder.js/100px180?text=Image cap" />
       <Card.Body>
@@ -39,7 +48,10 @@ function KitchenSinkExample() {
         <Card.Link href="#">Another Link</Card.Link>
       </Card.Body>
     </Card>
+    </Col>
+    </Row>
+    </Container>
   );
 }
 
-export default KitchenSinkExample;
+export default PageDetails;
